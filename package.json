@@ -1,0 +1,28 @@
+{
+  "name": "news-explorer-backend",
+  "version": "1.0.0",
+  "description": "An api that allows to find news",
+  "main": "app.js",
+  "scripts": {
+    "dev" : "nodemon app.js",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josecespinoza/news-explorer-backend.git"
+  },
+  "author": "José Espinoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josecespinoza/news-explorer-backend/issues"
+  },
+  "homepage": "https://github.com/josecespinoza/news-explorer-backend#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2"
+  }
+}
