@@ -1,8 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("./middlewares/cors");
-const { createUser } = require("./controllers/users");
+const { createUser, login } = require("./controllers/users");
 const app = express();
 const PORT = 3001;
 
@@ -24,6 +25,7 @@ app.listen(PORT, () => {
 app.use(cors);
 
 app.post("/signup", createUser);
+app.post("/signin", login);
 
 app.get("/test", (req, res) => {
   res.send({ message: "ok" });
