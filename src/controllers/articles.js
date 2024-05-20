@@ -22,6 +22,16 @@ module.exports.createArticle = (req, res, next) => {
     });
 };
 
+module.exports.getArticles = async (req, res, next) => {
+  const currentUserId = req.user._id;
+  try {
+    const articles = await Article.find({ owner: currentUserId });
+    res.json(articles);
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports.deleteArticle = async (req, res, next) => {
   const { cardId } = req.params;
   try {
