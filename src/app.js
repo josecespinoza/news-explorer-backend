@@ -33,7 +33,3 @@ app.post("/signin", login);
 app.use(auth);
 
 app.use("/articles", articlesRouter);
-
-app.get("/test", (req, res) => {
-  res.send({ message: "ok" });
-});

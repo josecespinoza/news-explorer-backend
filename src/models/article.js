@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const articleSchema = new mongoose.Schema({
-  photo: {
+  keyword: {
     type: String,
     required: true,
   },
@@ -13,7 +13,15 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  publishDate: {
+    type: Date,
+    required: true,
+  },
   source: {
+    type: String,
+    required: true,
+  },
+  photo: {
     type: String,
     required: true,
   },
