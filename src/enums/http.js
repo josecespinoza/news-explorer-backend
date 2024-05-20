@@ -10,6 +10,7 @@ const HttpStatus = Object.freeze({
 
 const HttpResponseMessage = Object.freeze({
   ARTICLE_WAS_CREATED: "The article was saved correctly",
+  ARTICLE_WAS_DELETED: "The article was deleted correctly",
 });
 
 const HttpErrorMessage = Object.freeze({

@@ -21,3 +21,13 @@ module.exports.createArticle = (req, res, next) => {
       next(err);
     });
 };
+
+module.exports.deleteArticle = async (req, res, next) => {
+  const { cardId } = req.params;
+  try {
+    await Article.deleteOne({ _id: cardId });
+    res.json({ message: HttpResponseMessage.ARTICLE_WAS_DELETED });
+  } catch (err) {
+    next(err);
+  }
+};
