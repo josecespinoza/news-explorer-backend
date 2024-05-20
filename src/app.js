@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("./middlewares/cors");
 const { createUser, login } = require("./controllers/users");
+const articlesRouter = require("./routes/articles");
+const auth = require("./middlewares/auth");
 const app = express();
+
 const PORT = 3001;
 
 app.use(bodyParser.json());
@@ -26,6 +29,10 @@ app.use(cors);
 
 app.post("/signup", createUser);
 app.post("/signin", login);
+
+app.use(auth);
+
+app.use("/articles", articlesRouter);
 
 app.get("/test", (req, res) => {
   res.send({ message: "ok" });
