@@ -21,6 +21,10 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  url: {
+    type: String,
+    required: true,
+  },
   photo: {
     type: String,
     required: true,

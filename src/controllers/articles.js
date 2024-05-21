@@ -3,7 +3,8 @@ const { HttpResponseMessage } = require("../enums/http");
 
 module.exports.createArticle = (req, res, next) => {
   const currentUserId = req.user._id;
-  const { keyword, title, description, publishDate, source, photo } = req.body;
+  const { keyword, title, description, publishDate, source, url, photo } =
+    req.body;
 
   Article.create({
     keyword,
@@ -11,6 +12,7 @@ module.exports.createArticle = (req, res, next) => {
     description,
     publishDate,
     source,
+    url,
     photo,
     owner: currentUserId,
   })
