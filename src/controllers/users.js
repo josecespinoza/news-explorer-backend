@@ -37,3 +37,16 @@ module.exports.login = async (req, res, next) => {
     next(err);
   }
 };
+
+module.exports.getUserInfo = async (req, res, next) => {
+  const currentUserId = req.user._id;
+  try {
+    const storedUser = await User.findById(currentUserId);
+    if (!storedUser) {
+      throw new NotFoundError(HttpErrorMessage.USER_DOESNT_EXIST_ERROR);
+    }
+    res.json(storedUser);
+  } catch (err) {
+    next(err);
+  }
+};
