@@ -11,10 +11,12 @@ const HttpStatus = Object.freeze({
 const HttpResponseMessage = Object.freeze({
   ARTICLE_WAS_CREATED: "The article was saved correctly",
   ARTICLE_WAS_DELETED: "The article was deleted correctly",
+  USER_WAS_CREATED: "The user was saved correctly",
 });
 
 const HttpErrorMessage = Object.freeze({
   AUTHORIZATION_ERROR: "Authorization was not provided to do this action",
+  USER_DOESNT_EXIST_ERROR: "This user doesn't exist",
 });
 
 module.exports = {

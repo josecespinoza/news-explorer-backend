@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("./middlewares/cors");
 const { createUser, login } = require("./controllers/users");
 const articlesRouter = require("./routes/articles");
+const usersRouter = require("./routes/users");
 const auth = require("./middlewares/auth");
 const app = express();
 
@@ -33,3 +34,4 @@ app.post("/signin", login);
 app.use(auth);
 
 app.use("/articles", articlesRouter);
+app.use("/users", usersRouter);
