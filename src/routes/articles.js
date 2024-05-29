@@ -5,8 +5,9 @@ const {
   deleteArticle,
   getArticles,
 } = require("../controllers/articles");
+const requestValidator = require("../middlewares/requestValidator");
 
-router.post("/", createArticle);
+router.post("/", requestValidator.createArticle, createArticle);
 router.get("/", getArticles);
 router.delete("/:cardId", deleteArticle);
 

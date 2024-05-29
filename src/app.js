@@ -7,6 +7,9 @@ const { createUser, login } = require("./controllers/users");
 const articlesRouter = require("./routes/articles");
 const usersRouter = require("./routes/users");
 const auth = require("./middlewares/auth");
+const requestValidator = require("./middlewares/requestValidator");
+const { errors } = require("celebrate");
+const errorHandler = require("./middlewares/errorHandler");
 const app = express();
 
 const PORT = 3001;
@@ -28,10 +31,12 @@ app.listen(PORT, () => {
 
 app.use(cors);
 
-app.post("/signup", createUser);
-app.post("/signin", login);
+app.post("/signup", requestValidator.signUp, createUser);
+app.post("/signin", requestValidator.signIn, login);
 
 app.use(auth);
 
 app.use("/articles", articlesRouter);
 app.use("/users", usersRouter);
+app.use(errors());
+app.use(errorHandler);
