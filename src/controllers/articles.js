@@ -1,5 +1,6 @@
 const Article = require("../models/article");
 const { HttpResponseMessage } = require("../enums/http");
+const validate = require("../utils/validate");
 
 module.exports.createArticle = (req, res, next) => {
   const currentUserId = req.user._id;
@@ -36,7 +37,11 @@ module.exports.getArticles = async (req, res, next) => {
 
 module.exports.deleteArticle = async (req, res, next) => {
   const { cardId } = req.params;
+  const currentUserId = req.user._id;
   try {
+    const article = await Article.findById(cardId);
+    const ownerId = article.owner._id.toString();
+    validate.crossUserAction(currentUserId, ownerId);
     await Article.deleteOne({ _id: cardId });
     res.json({ message: HttpResponseMessage.ARTICLE_WAS_DELETED });
   } catch (err) {

@@ -16,6 +16,7 @@ const HttpResponseMessage = Object.freeze({
 
 const HttpErrorMessage = Object.freeze({
   AUTHORIZATION_ERROR: "Authorization was not provided to do this action",
+  OWNER_ERROR: "This user is not authorized to do this action",
   USER_DOESNT_EXIST_ERROR: "This user doesn't exist",
 });
 
