@@ -5,6 +5,7 @@ const HttpStatus = Object.freeze({
   UNAUTHORIZED: 401,
   FORBIDDEN: 403,
   NOT_FOUND: 404,
+  CONFLICT: 409,
   INTERNAL_SERVER_ERROR: 500,
 });
 
@@ -18,10 +19,20 @@ const HttpErrorMessage = Object.freeze({
   AUTHORIZATION_ERROR: "Authorization was not provided to do this action",
   OWNER_ERROR: "This user is not authorized to do this action",
   USER_DOESNT_EXIST_ERROR: "This user doesn't exist",
+  USER_ALREADY_EXIST_ERROR: "This user is already registered",
+});
+
+const HttpErrorCode = Object.freeze({
+  DEFAULT_CODE: "DEFAULT_CODE",
+  AuthorizationError: "AUTHORIZATION_ERROR",
+  DuplicateError: "USER_ALREADY_EXIST_ERROR",
+  NotFoundError: "USER_DOESNT_EXIST_ERROR",
+  OwnerError: "OWNER_ERROR",
 });
 
 module.exports = {
   HttpStatus,
   HttpResponseMessage,
   HttpErrorMessage,
+  HttpErrorCode,
 };
