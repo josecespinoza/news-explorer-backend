@@ -1,13 +1,13 @@
-const HttpError = require("../errors/HttpError");
+const HttpError = require("./HttpError");
 const { HttpStatus, HttpErrorCode } = require("../enums/http");
 
-class AuthorizationError extends HttpError {
+class OwnerError extends HttpError {
   constructor(message) {
     const status = HttpStatus.UNAUTHORIZED;
     super(message, status);
-    this.name = "AuthorizationError";
+    this.name = "OwnerError";
     this.errorCode = HttpErrorCode[this.name];
   }
 }
 
-module.exports = AuthorizationError;
+module.exports = OwnerError;

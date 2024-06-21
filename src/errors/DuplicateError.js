@@ -1,13 +1,13 @@
 const HttpError = require("../errors/HttpError");
 const { HttpStatus, HttpErrorCode } = require("../enums/http");
 
-class NotFoundError extends HttpError {
+class DuplicateError extends HttpError {
   constructor(message) {
-    const status = HttpStatus.BAD_REQUEST;
+    const status = HttpStatus.CONFLICT;
     super(message, status);
-    this.name = "NotFoundError";
+    this.name = "DuplicateError";
     this.errorCode = HttpErrorCode[this.name];
   }
 }
 
-module.exports = NotFoundError;
+module.exports = DuplicateError;

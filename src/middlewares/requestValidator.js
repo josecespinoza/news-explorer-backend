@@ -24,8 +24,8 @@ requestValidator.createArticle = celebrate({
     description: Joi.string().required(),
     publishDate: Joi.date().required(),
     source: Joi.string().required(),
-    url: Joi.link().required(),
-    photo: Joi.link().required(),
+    url: Joi.string().uri().required(),
+    photo: Joi.string().uri().required(),
   }),
 });
 
