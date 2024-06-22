@@ -35,10 +35,8 @@ app.use(cors);
 app.post("/signup", requestValidator.signUp, createUser);
 app.post("/signin", requestValidator.signIn, login);
 
-app.use(auth);
-
-app.use("/articles", articlesRouter);
-app.use("/users", usersRouter);
+app.use("/articles", auth, articlesRouter);
+app.use("/users", auth, usersRouter);
 app.use(errors());
 app.use(nonexistent);
 app.use(errorHandler);
