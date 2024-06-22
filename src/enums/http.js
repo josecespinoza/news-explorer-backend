@@ -20,13 +20,14 @@ const HttpErrorMessage = Object.freeze({
   OWNER_ERROR: "This user is not authorized to do this action",
   USER_DOESNT_EXIST_ERROR: "This user doesn't exist",
   USER_ALREADY_EXIST_ERROR: "This user is already registered",
+  ROUTE_WAS_NOT_FOUND_ERROR: "Ups, this route doesn't exist",
 });
 
 const HttpErrorCode = Object.freeze({
   DEFAULT_CODE: "DEFAULT_CODE",
   AuthorizationError: "AUTHORIZATION_ERROR",
-  DuplicateError: "USER_ALREADY_EXIST_ERROR",
-  NotFoundError: "USER_DOESNT_EXIST_ERROR",
+  DuplicateError: "ALREADY_EXIST_ERROR",
+  NotFoundError: "DOESNT_EXIST_ERROR",
   OwnerError: "OWNER_ERROR",
 });
 
