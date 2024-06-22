@@ -7,6 +7,7 @@ const { createUser, login } = require("./controllers/users");
 const articlesRouter = require("./routes/articles");
 const usersRouter = require("./routes/users");
 const auth = require("./middlewares/auth");
+const nonexistent = require("./routes/non-existent");
 const requestValidator = require("./middlewares/requestValidator");
 const { errors } = require("celebrate");
 const errorHandler = require("./middlewares/errorHandler");
@@ -34,9 +35,8 @@ app.use(cors);
 app.post("/signup", requestValidator.signUp, createUser);
 app.post("/signin", requestValidator.signIn, login);
 
-app.use(auth);
-
-app.use("/articles", articlesRouter);
-app.use("/users", usersRouter);
+app.use("/articles", auth, articlesRouter);
+app.use("/users", auth, usersRouter);
 app.use(errors());
+app.use(nonexistent);
 app.use(errorHandler);
