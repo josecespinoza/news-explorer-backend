@@ -13,12 +13,14 @@ const { errors } = require("celebrate");
 const errorHandler = require("./middlewares/errorHandler");
 const app = express();
 
-const PORT = 3001;
+const PORT = process.env.API_PORT || 3001;
+const MONGO_DB_HOST =
+  process.env.MONGO_DB_HOST || "mongodb://localhost:27017/newsdb";
 
 app.use(bodyParser.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/newsdb")
+  .connect(MONGO_DB_HOST)
   .then((res) => {
     console.log("Successfully connected to mongodb");
   })
