@@ -29,4 +29,12 @@ requestValidator.createArticle = celebrate({
   }),
 });
 
+requestValidator.getNews = celebrate({
+  query: Joi.object().keys({
+    searchTerm: Joi.string().required(),
+    pageSize: Joi.number().required(),
+    page: Joi.number().required(),
+  }),
+});
+
 module.exports = requestValidator;
